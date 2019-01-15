@@ -5,17 +5,14 @@ if(!process.env.API_KEY){
 }
 
 const getWeather = (lat, long, clb) => {
-    url = `https://api.darksky.net/forecast/${process.env.API_KEY}/${lat},${long}?exclude=[minutely,hourly,alerts,flags]`;
+    const url = `https://api.darksky.net/forecast/${process.env.API_KEY}/${lat},${long}?exclude=[minutely,hourly,alerts,flags]&units=si`;
     const https = require('https');
     https.get(url, (res) => {
         let error;
         if (res.statusCode !== 200) {
           error = new Error('Request Failed.\n' +
                             `Status Code: ${res.statusCode}`);
-        } /*else if (!/^application\/json/.test(res.contentType)) {
-          error = new Error('Invalid content-type.\n' +
-                            `Expected application/json but received ${res.contentType}`);
-        }*/
+        }
         if (error) {
           console.error(error.message);
           // consume response data to free up memory
@@ -51,17 +48,25 @@ app.get('/api/weather', (req, res) => {
     if(!city){
         res.sendStatus(404);
         return;
-    } 
-    if(!city.weather){
-        getWeather(city.latitude, city.longitude, (weather) => {
-            res.send(city.weather = weather);
-        });
     }
+    if(city.weather) {
+        res.send(city.weather);
+        return;
+    }
+    getWeather(city.latitude, city.longitude, (weather) => {
+        res.send(city.weather = weather);
+    });
+    return;
 });
 app.get('/api/search', (req, res) => {
     const q = (req.query.q || '').trim().toLowerCase();
-    const filteredCities = cities.filter(x => x.city.toLowerCase().includes(q)).slice(0,10);
-    res.send(filteredCities);
+    const filteredCities = cities.filter(x => x.city.toLowerCase().includes(q) || q === '').slice(0,10);
+    // check if this cities does not have weather key download and add the keys.
+    Promise.all(filteredCities.filter(x => !x.weather).map(x => new Promise((resolve, reject) => {
+        getWeather(x.latitude, x.longitude, resolve);
+    }).then(weather => { x.weather = weather; }))).then(() => {
+        res.send(filteredCities);
+    });
 });
 
 app.use(function(req, res, next) {

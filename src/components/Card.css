@@ -1,0 +1,97 @@
+.card{
+width: 705px;
+background-color: white;
+height: 425px;
+position: relative;
+color: #505050;
+font-size: 23px;
+margin: 0 auto;
+margin-bottom: 30px;
+}
+.card--hidden{
+display: none;
+}
+.card__location{
+position: absolute;
+left: 75px;
+top: 27px;
+font-weight: bold;
+}
+.card__weather{
+position: absolute;
+left: 75px;
+top: 73px;
+font-size: 49px;
+font-weight: bold;
+}
+.card__lower-bound-icon, .card__upper-bound-icon{
+display: inline-block;
+background-size: cover;
+background-image: url(../arrow-down.png);
+width: 23px;
+height: 23px;
+margin-right: 3px;
+}
+.card__close{
+position: absolute;
+right: 20px;
+top: 35px;
+width: 23px;
+height: 23px;
+background-image: url(../cross.png);
+background-size: cover;
+}
+.card__upper-bound-icon{
+background-image: url(../arrow-up.png);
+}
+.card__lower-bound, .card__upper-bound{
+position: absolute;
+left: 75px;
+top: 192px;
+font-size: 23px;
+font-weight: bold;
+}
+.card__upper-bound{
+left: 155px;
+}
+.card__sense{
+position: absolute;
+left: 265px;
+top: 192px;
+}
+.card__humidity{
+position: absolute;
+left: 265px;
+top: 255px;
+}
+.card__wind{
+position: absolute;
+left: 75px;
+top: 255px;
+}
+.card__line{
+position: absolute;
+top: 312px;
+left: 35px;
+width: 635px;
+height: 1px;
+background: #ff9832;
+}
+.card-days{
+position: absolute;
+left: 75px;
+top: 332px;
+width: 550px;
+justify-content: space-between;
+display: flex;
+}
+.card-day__name{
+font-weight: bold;
+font-size: 24px;
+}
+.card-day__temperature{
+color: #ff8000;
+font-size: 21px;
+margin-top: 6px;
+font-weight: bold;
+}
