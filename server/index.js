@@ -1,6 +1,7 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 
-if(!process.env.API_KEY){
+if(process.env.NODE_ENV !== 'development' && !process.env.API_KEY){
     throw Error('No API_KEY provided for api.darksky.net!');
 }
 
@@ -12,6 +13,8 @@ const getCitiesSync = () => {
 
 const cities = getCitiesSync();
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../build')));
 if(process.env.NODE_ENV === 'development') {
     const getFakeData = () => {
         const fs = require('fs');
