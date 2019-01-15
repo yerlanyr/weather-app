@@ -1,0 +1,125 @@
+.card {
+    max-width: 705px;
+    position: relative;
+    background-color: white;
+    color: #505050;
+    font-size: 23px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    overflow:hidden;
+}
+
+
+.card--hidden {
+    display: none;
+}
+.card__container{
+    padding: 0 75px;
+    padding-top: 30px;
+}
+.card__location {
+    font-weight: bold;
+    margin-bottom: 17px;
+}
+
+.card__weather {
+    font-size: 49px;
+    font-weight: bold;
+    margin-bottom: 27px;
+}
+
+.card__lower-bound-icon, .card__upper-bound-icon {
+    display: inline-block;
+    background-size: cover;
+    background-image: url(../arrow-down.png);
+    width: 23px;
+    height: 23px;
+    margin-right: 3px;
+}
+
+.card__close {
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    width: 23px;
+    height: 23px;
+    background-image: url(../cross.png);
+    background-size: cover;
+}
+.card__two_cols {
+    display: flex;
+    margin-bottom: 25px;
+}
+.card__lower-bound{
+    margin-right: 25px;
+}
+.card__two_col {
+    display: flex;
+    width: 190px;
+}
+ 
+.card__upper-bound-icon {
+    background-image: url(../arrow-up.png);
+}
+
+.card__lower-bound, .card__upper-bound {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.card__line {
+    width: calc(100% - 70px);
+    margin: 0 auto;
+    height: 1px;
+    background: #ff9832;
+}
+
+.card-days {
+    justify-content: space-between;
+    display: flex;
+    padding-bottom: 25px;
+}
+
+.card-day__name {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+
+.card-day__temperature {
+    color: #ff8000;
+    font-size: 21px;
+    margin-top: 6px;
+    font-weight: bold;
+}
+@media (max-width: 700px) {
+    .card__container{
+        padding: 15px 10px;
+    }
+    .card{
+        font-size: 19px;
+    }
+    .card-days{
+        padding-bottom: 10px;
+    }
+    .card-day__temperature{
+        font-size: 13px;
+    }
+    .card__line{
+        width: 100%;
+    }
+    .card__weather{
+        font-size: 30px;
+    }
+    .card:before, .card:after{
+        content: '';
+        display:block;
+        width: 100%;
+        height:1px;
+        margin-top: -1px;
+        box-shadow: 0 0 5px black;
+    }
+    .card:after{
+        transform: translateY(1px);
+    }
+}

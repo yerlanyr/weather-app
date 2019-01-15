@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './Search.css';
+import './Search.scss';
 export default class Search extends Component {
     render(){
         const {search} = this.props;
@@ -9,7 +9,7 @@ export default class Search extends Component {
             search(inp.value);
         }}>
             <div className="search-bar__group">
-                <input ref={x => inp = x} className="search-bar__input" placeholder="Insira aqui o nome da cidade"/>
+                <input ref={x => inp = x} className="search-bar__input" placeholder="Search..."/>
                 <button type="submit" className="search-bar__icon" ></button>
             </div>
         </form>; 

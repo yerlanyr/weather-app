@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import CardConnected from './components/CardConnected';
 import {Provider} from 'react-redux';
 import CapitalsConnected from './components/CapitalsConnected';

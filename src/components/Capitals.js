@@ -1,5 +1,5 @@
 import React from 'react';
-import './Capitals.css';
+import './Capitals.scss';
 export default ({cities, cityClick}) => (<div className="capitals">
 <div className="capitals__title">Capitals</div>
 <div className="capitals-table">
@@ -8,7 +8,7 @@ export default ({cities, cityClick}) => (<div className="capitals">
       <div className="capitals-table__th">Min</div>
       <div className="capitals-table__th">Max</div>
     </div>
-    <div className="capitals-table__item">
+    <div className="capitals-table__item hide-on-sm">
       <div className="capitals-table__th">Min</div>
       <div className="capitals-table__th">Max</div>
     </div>
