@@ -3,6 +3,7 @@ import './App.css';
 import CardConnected from './components/CardConnected';
 import {Provider} from 'react-redux';
 import CapitalsConnected from './components/CapitalsConnected';
+import SearchConnected from './components/SearchConnected';
 import store, {setCitiesAction} from './store';
 class App extends Component {
   constructor(){
@@ -15,12 +16,7 @@ class App extends Component {
         <div className="container">
           <div className="title">Weather app</div>
           <CardConnected/>
-          <div className="search-bar">
-            <div className="search-bar__group">
-              <input className="search-bar__input" placeholder="Insira aqui o nome da cidade"/>
-              <div className="search-bar__icon"></div>
-            </div>
-          </div>
+          <SearchConnected/>
           <CapitalsConnected/>
         </div>
       </Provider>

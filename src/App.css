@@ -20,31 +20,3 @@ body * {
   margin: 0 auto;
   padding: 5px;
 }
-.search-bar{
-  height: 170px;
-  text-align: center;
-}
-.search-bar__group{
-  min-width: 705px;
-  display: inline-block;
-  height: 85px;
-  background: white;
-  position: relative;
-}
-.search-bar__input{
-  width: 100%;
-  height: 100%;
-  border: none;
-  padding: 0 30px;
-  font-size: 34px;
-  color: black;
-}
-.search-bar__icon{
-  position: absolute;
-  background: url(search-icon.png);
-  right: 25px;
-  width: 36px;
-  height: 36px;
-  top: 26px;
-  background-size: contain;
-}
