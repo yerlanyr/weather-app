@@ -12,6 +12,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+### `node server`
+Runs the backend server. 
+It relies on environment variables like `NODE_ENV` : development | production, `API_KEY` from `darksky.net` to utilize an API for fetching weather. The server runs on 4000 port. The react app dev server that runs on 3000 will proxy all api calls to the server.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
